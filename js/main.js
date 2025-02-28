@@ -47,26 +47,51 @@
 // console.log("La suma de los primeros " + n + " números naturales es: " + resultado);
 
 
-// 4. 
+// 4.  Validar si un número es positivo, negativo o cero con while
 
-let numero;
+// function validarNumero() {
+//     let numero = Number(prompt("Introduce un número:"));
+  
+//     while (isNaN(numero)) {
+//       alert("Por favor, introduce un número válido.");
+//       numero = Number(prompt("Introduce un número:"));
+//     }
+  
+//     if (numero > 0) {
+//       console.log("El número es positivo.");
+//     } else if (numero < 0) {
+//       console.log("El número es negativo.");
+//     } else {
+//       console.log("El número es cero.");
+//     }
+//   }
+  
+//   validarNumero();
+  
+// 5. Verificar si un número es primo con un ciclo while
 
-while (true) {
-    numero = Number(prompt("Ingresa un número:"));
-    
-    // Verificamos si el valor ingresado es un número
-    if (!isNaN(numero)) {
-        break; // Si es un número válido, salimos del ciclo
-    } else {
-        alert("Por favor, ingresa un número válido.");
-    }
-}
+// function esPrimo(num) {
+//     // Si el número es menor o igual a 1, no es primo
+//     if (num <= 1) {
+//         return false;
+//     }
 
-// Validamos si el número es positivo, negativo o cero
-if (numero > 0) {
-    console.log("El número es positivo.");
-} else if (numero < 0) {
-    console.log("El número es negativo.");
-} else {
-    console.log("El número es cero.");
-}
+//     let i = 2;
+//     // Ciclo while para verificar divisores
+//     while (i <= Math.sqrt(num)) {
+//         if (num % i === 0) {
+//             // Si encuentra un divisor, no es primo
+//             return false;
+//         }
+//         i++;
+//     }
+
+//     // Si no encontró divisores, el número es primo
+//     return true;
+// }
+
+// // Ejemplo de uso
+// console.log(esPrimo(7));  // true
+// console.log(esPrimo(10)); // false
+// console.log(esPrimo(13)); // true
+// console.log(esPrimo(20)); // false
