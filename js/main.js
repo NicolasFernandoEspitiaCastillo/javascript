@@ -1,5 +1,7 @@
 // 1. Cálculo del promedio de tres números e indicar si el estudiante aprobó o reprobó
 
+
+
 // alert ("Ingrese las notas: ")
 
 // let nota1 = Number (prompt("Ingrese nota 1: "))
@@ -95,3 +97,39 @@
 // console.log(esPrimo(10)); // false
 // console.log(esPrimo(13)); // true
 // console.log(esPrimo(20)); // false
+
+
+
+const myInformacion = document.querySelector("#myInfomacion");
+const myTabla = document.querySelector("#myTabla");
+let DB = (localStorage.getItem("formularioCampus")) ? JSON.parse(localStorage.getItem("formularioCampus")): [];
+
+addEventListener("DOMContentLoaded", (e)=>{
+    let plantilla = "";
+    for (let i = 0; i < DB.length; i++) {
+        plantilla += `<tr>
+                        <th>${i}</th>
+                        <th>${DB[i].nombre}</th>
+                        <th>${DB[i].edad}</th>
+                        <th>${DB[i].teacher}</th>
+                    </tr>`;
+    }
+    myTabla.innerHTML = plantilla; 
+})
+
+myInformacion.addEventListener("submit", e=>{
+    e.preventDefault();
+    let data = Object.fromEntries(new FormData(e.target))
+    DB.push(data);
+    let plantilla = "";
+    for (let i = 0; i < DB.length; i++) {
+        plantilla += `<tr>
+                        <th>${i}</th>
+                        <th>${DB[i].nombre}</th>
+                        <th>${DB[i].edad}</th>
+                        <th>${DB[i].teacher}</th>
+                    </tr>`;
+    }
+    myTabla.innerHTML = plantilla;
+    localStorage.setItem("formularioCampus", JSON.stringify(DB));
+});
